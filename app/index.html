@@ -51,9 +51,9 @@
             <h2 class="text-center">{{question.text}}</h2>
             <data-owl-carousel class="owl-carousel"
                                data-options="{navigation: true, pagination: false, rewindNav : true, items: 3}">
-                <div owl-carousel-item="" ng-repeat="option in ::question.options" class="item">
-                    <div class="image-wrapper"
-                         ng-click="onAnswerImage(question, option)" ng-style="{'background-color': option.bgColor ?
+                <div owl-carousel-item="" ng-repeat="(j, option) in ::question.options" class="item">
+                    <div class="image-wrapper" ng-class="{'first':j===0}"
+                         ng-click="onAnswerImage(question, option)" ng-style="{'border-color': option.bgColor ?
                     option.bgColor : '#fff'}">
                         <img ng-src="{{option.image}}" alt="{{option.text}}">
                         <h4>{{option.text}}</h4>
