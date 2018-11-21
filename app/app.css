@@ -99,15 +99,18 @@ body {
     height: 400px;
 }
 
-.owl-wrapper{
-    height:100% !important;
+.owl-wrapper {
+    height: 100% !important;
 }
-.owl-item{
-    height:100% !important;
+
+.owl-item {
+    height: 100% !important;
 }
-.owl-carousel-item{
-    height:100% !important;
+
+.owl-carousel-item {
+    height: 100% !important;
 }
+
 [owl-carousel-item] {
-    height:100% !important;
+    height: 100% !important;
 }
