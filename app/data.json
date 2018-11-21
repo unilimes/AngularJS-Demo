@@ -1,0 +1,70 @@
+{
+  "questionnaire": [
+    {
+      "text": "text with question",
+      "options": [
+        {
+          "bgColor": "green",
+          "image": "https://images.unsplash.com/photo-1527427337751-fdca2f128ce5?s=7f0965bc37ef09044780baa8af91e2b3",
+          "value": 1
+        },
+        {
+          "text": "text",
+          "bgColor": "red",
+          "image": "https://images.unsplash.com/photo-1481487196290-c152efe083f5?s=527bc5d7e466efd5ce8a98c311728fbd",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "text": "text1 with question",
+      "options": [
+        {
+          "bgColor": "green",
+          "image": "./images/image1.png",
+          "value": 1
+        },
+        {
+          "text": "text1",
+          "bgColor": "red",
+          "image": "./images/image2.png",
+          "value": 2
+        },
+        {
+          "text": "text2",
+          "bgColor": "red",
+          "image": "./images/image3.png",
+          "value": 3
+        },
+        {
+          "text": "text3",
+          "bgColor": "red",
+          "image": "https://images.unsplash.com/photo-1481487196290-c152efe083f5?s=527bc5d7e466efd5ce8a98c311728fbd",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "text": "text2 with question",
+      "options": [
+        {
+          "bgColor": "green",
+          "image": "./images/image3.png",
+          "value": 1
+        },
+        {
+          "text": "text",
+          "bgColor": "red",
+          "image": "./images/image1.png",
+          "value": 2
+        },
+        {
+          "text": "text",
+          "bgColor": "red",
+          "image": "./images/image2.png",
+          "value": 3
+        }
+      ]
+    }
+  ]
+}

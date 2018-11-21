@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html ng-app="plunker">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>AngularJS Plunker</title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <link rel="stylesheet" href="libs/owl/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="libs/owl/owl.theme.min.css"/>
+    <link rel="stylesheet" href="libs/owl/owl.transitions.min.css"/>
+
+    <script data-require="angular.js@1.3.x" src="libs/angular/angular.min.js" data-semver="1.3.15"></script>
+    <script data-require="jquery@2.1.3" data-semver="2.1.3" src="libs/jquery/jquery-2.1.3.min.js"></script>
+    <script src="libs/owl/owl.carousel.min.js"></script>
+
+    <link rel="stylesheet" href="libs/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="app.css">
+    <script src="app.js"></script>
+</head>
+
+<body ng-controller="MainCtrl">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4" align="center">
+            <button class="btn pull-right btn-danger" ng-class="{'hide': !questionnaireOpenned}"
+                    ng-click="currentQuestionNumber = currentQuestionNumber - 1 < 0 ? questionnaire.length - 1: currentQuestionNumber - 1; currentPhotoNumber = 0;">
+                Prev question
+            </button>
+        </div>
+        <div class="col-md-4" align="center">
+            <button class="btn pull-right"
+                    ng-class="{true: 'btn-primary', false: 'btn-danger'}[!questionnaireOpenned]"
+                    ng-click="questionnaireOpenned= !questionnaireOpenned">
+                {{!questionnaireOpenned && 'Open' || 'Close'}} questionnaire
+            </button>
+        </div>
+
+        <div class="col-md-4" align="center">
+            <button class="btn pull-right btn-primary" ng-class="{'hide': !questionnaireOpenned}"
+                    ng-click="currentQuestionNumber = currentQuestionNumber + 2 > questionnaire.length ? 0 : currentQuestionNumber + 1; currentPhotoNumber = 0;">
+                Next question
+            </button>
+        </div>
+    </div>
+
+
+    <div class="section" ng-if="questionnaireOpenned">
+        <div ng-if="i === currentQuestionNumber" class="question-section card card-3"
+             ng-repeat="(i, question) in questionnaire">
+            <h2 class="text-center">{{question.text}}</h2>
+            <data-owl-carousel class="owl-carousel"
+                               data-options="{navigation: true, pagination: false, rewindNav : true, items: 3}">
+                <div owl-carousel-item="" ng-repeat="option in ::question.options" class="item">
+                    <div class="image-wrapper"
+                         ng-click="onAnswerImage(question, option)" ng-style="{'background-color': option.bgColor ?
+                    option.bgColor : '#fff'}">
+                        <img ng-src="{{option.image}}" alt="{{option.text}}">
+                        <h4>{{option.text}}</h4>
+                    </div>
+                </div>
+            </data-owl-carousel>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"-->
+<!--integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">-->
+<!--<link rel="stylesheet" href="app.css">-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>-->
+<!--<body>-->
+<!--<div class="container">-->
+<!--<div ng-app="myApp" ng-controller="customersCtrl">-->
+<!--<button class="btn pull-right"-->
+<!--ng-class="{true: '', false: 'btn-danger'}[!questionnaireOpenned]"-->
+<!--ng-click="questionnaireOpenned= !questionnaireOpenned">-->
+<!--{{!questionnaireOpenned && 'Open' || 'Close'}} questionnaire-->
+<!--</button>-->
+<!--<button class="btn pull-right btn-primary"-->
+<!--ng-click="currentQuestionNumber = currentQuestionNumber - 1 < 0 ? questionnaire.length - 1: currentQuestionNumber - 1; currentPhotoNumber = 0;">-->
+<!--Prev question-->
+<!--</button>-->
+<!--<button class="btn pull-right btn-primary"-->
+<!--ng-click="currentQuestionNumber = currentQuestionNumber + 2 > questionnaire.length ? 0 : currentQuestionNumber + 1; currentPhotoNumber = 0;">-->
+<!--Next question-->
+<!--</button>-->
+<!--<div class="section" ng-if="questionnaireOpenned">-->
+
+<!--<div ng-if="i === currentQuestionNumber" class="question-section"-->
+<!--ng-repeat="(i, question) in questionnaire">-->
+<!--{{ 'Question text: ' + question.text}}-->
+<!--<div class="question-images">-->
+<!--<div class="image-wrapper"-->
+<!--ng-repeat="(j, option) in showImages(currentPhotoNumber, carouselLength, question.options)"-->
+<!--ng-click="onAnswerImage(question, option)" ng-style="{'background-color': option.bgColor ? option.bgColor : '#fff'}">-->
+<!--<img ng-src="{{option.image}}" alt="{{option.text}}">-->
+<!--{{option.text}}-->
+<!--</div>-->
+<!--</div>-->
+<!--<button class="btn pull-right btn-primary"-->
+<!--ng-class="{'hide': question.options.length <= carouselLength}"-->
+<!--ng-click="currentPhotoNumber = currentPhotoNumber - 1 < 0 ? question.options.length - 1: currentPhotoNumber - 1">-->
+<!--Prev photo-->
+<!--</button>-->
+<!--<button class="btn pull-right btn-primary"-->
+<!--ng-class="{'hide': question.options.length <= carouselLength}"-->
+<!--ng-click="currentPhotoNumber = currentPhotoNumber + 2 > question.options.length ? 0 : currentPhotoNumber + 1">-->
+<!--Next photo-->
+<!--</button>-->
+
+<!--</div>-->
+
+<!--</div>-->
+
+<!--</div>-->
+<!--</div>-->
+
+<!--<script src="app.js"></script>-->
+<!--</body>-->
+<!--</html>-->
